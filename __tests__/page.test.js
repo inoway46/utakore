@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
+import Home from '../app/page'
 import '@testing-library/jest-dom'
 
 describe('Home', () => {
@@ -8,6 +8,10 @@ describe('Home', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 
-    expect(heading).toBeInTheDocument()
+  it('renders 登録ボタン', () => {
+    render(<Home />)
+    const button = screen.getByRole('button')
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveTextContent('登録')
   })
 })
